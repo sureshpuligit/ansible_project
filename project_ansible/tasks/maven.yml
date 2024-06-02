@@ -1,0 +1,24 @@
+---
+- name: get maven url
+  get_url:
+    url: https://dlcdn.apache.org/maven/maven-3/3.9.7/binaries/apache-maven-3.9.7-bin.tar.gz
+    dest: /opt
+- name: untar maven tar file
+  unarchive:
+    src: /opt/apache-maven-3.9.7-bin.tar.gz
+    dest: /opt/
+    remote_src: yes
+- name: create a file maven.sh
+  file:
+     path: /etc/profile.d/maven.sh
+     state: touch
+     mode: u+rwx,g+rwx,o+rwx
+- name: add content to maven.sh
+  copy:
+    content:  M2_HOME='/opt/maven'
+                  PATH="$M2_HOME/bin:$PATH"
+    dest: /etc/profile.d/maven.sh
+- name: start maven
+  shell: source /etc/profile.d/maven.sh
+  tags: start
+
