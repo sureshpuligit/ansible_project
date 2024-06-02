@@ -1,0 +1,6 @@
+---
+- hosts: root_usr
+  become: yes
+  roles:
+    - project_ansible
+    
