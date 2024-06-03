@@ -1,0 +1,10 @@
+---
+- name: git clone
+  git:
+    repo: https://github.com/sureshpuligit/hello-world.git
+    dest: /root/helloworld
+- name: build
+  command: mvn clean package
+  args:
+    chdir: /root/helloworld
+

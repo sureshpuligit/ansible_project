@@ -1,0 +1,3 @@
+---
+- name: copy to webapps
+  command: cp helloworld/webapp/target/webapp.war /opt/tomcat/apache-tomcat-9.0.89/webapps/

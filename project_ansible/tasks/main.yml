@@ -1,4 +1,6 @@
 ---
 - include_tasks: packages.yml
 - include_tasks: maven.yml
-- include_tasks: tomcat.yml 
+- include_tasks: tomcat.yml
+- include_tasks: gitclone.yml
+- include_tasks: tomcat_deploy.yml 
